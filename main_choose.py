@@ -48,7 +48,7 @@ def class_input_windows():
     instructions= tk.Label(root, text="Hint")
     instructions.pack()
 
-    hint = tk.Label(root, text="'p':'plate','y':'yellow_plate','g':'green_plate','r':'red_plate'")
+    hint = tk.Label(root, text="'w':'plate','y':'yellow_plate','g':'green_plate','r':'red_plate'")
     hint.pack()
 
     mission = tk.Label(root, text="class name:")
@@ -56,7 +56,7 @@ def class_input_windows():
 
     default_input = tk.StringVar()
     class_input = tk.Entry(root, textvariable=default_input)
-    default_input.set("")
+    default_input.set("W")
     class_input.pack()
 
     def buttom_on_click():
@@ -303,8 +303,8 @@ def generateXML(now_JSON, out_xml_path, imagesize,file_name):
     tree.write(out_xml_path + '/' + file_name + '.xml')
 
 if __name__ == '__main__':
-    videoinpath = "data/sample23/"
-    outpath = "data/output23/"
+    videoinpath = "data/sample41/"
+    outpath = "data/output41/"
 
     dirfold_img = 'image'
     out_img_path = join(outpath, dirfold_img)
@@ -321,8 +321,8 @@ if __name__ == '__main__':
     global now_JSON,display_im
     global box_mode,file_name,thick,clickcounter,im,class_dict
     box_mode=''
-    class_dict={'p':'plate','y':'yellow_plate','g':'green_plate','r':'red_plate',
-                'P':'plate','Y':'yellow_plate','G':'green_plate','R':'red_plate'}
+    class_dict={'w':'plate','y':'yellow_plate','g':'green_plate','r':'red_plate',
+                'W':'plate','Y':'yellow_plate','G':'green_plate','R':'red_plate'}
     clickcounter = 0
 
     all_files = [f for f in listdir(videoinpath) if isfile(join(videoinpath, f))]
