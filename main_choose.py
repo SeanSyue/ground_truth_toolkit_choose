@@ -15,8 +15,16 @@ ix, iy, cx, cy = -1, -1, -1, -1
 w, h = 0, 0
 changeObject=False
 
+
+def disable_mouse_callback(*args):  # Assign *args in order to suppress TypeError raised by disable_mouse_callback().
+    pass
+
+
 def plate_text_input_windows():
     global plate_text
+
+    cv2.setMouseCallback(str(file_name), disable_mouse_callback)
+
     root = tk.Tk()
     root.title("input plate text")
 
@@ -37,12 +45,18 @@ def plate_text_input_windows():
     tk.Button(root, text="Enter", command=buttom_on_click).pack()
 
     root.mainloop()
+
+    cv2.setMouseCallback(str(file_name), click_boundingbox)
+
     return plate_text
     pass
 
 def class_input_windows():
     global class_key
     root = tk.Tk()
+
+    cv2.setMouseCallback(str(file_name), disable_mouse_callback)
+
     root.title("choose class")
 
     instructions= tk.Label(root, text="Hint")
@@ -68,6 +82,9 @@ def class_input_windows():
     tk.Button(root, text="Enter", command=buttom_on_click).pack()
 
     root.mainloop()
+
+    cv2.setMouseCallback(str(file_name), click_boundingbox)
+
     return class_key
     pass
 
@@ -303,8 +320,8 @@ def generateXML(now_JSON, out_xml_path, imagesize,file_name):
     tree.write(out_xml_path + '/' + file_name + '.xml')
 
 if __name__ == '__main__':
-    videoinpath = "data/sample41/"
-    outpath = "data/output41/"
+    videoinpath = "data/sample44/"
+    outpath = "data/output44/"
 
     dirfold_img = 'image'
     out_img_path = join(outpath, dirfold_img)
