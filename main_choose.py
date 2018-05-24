@@ -1,7 +1,6 @@
 # coding=UTF-8
 import cv2
 import getpass
-import os
 import json
 from os import listdir, mkdir
 from os.path import isfile, join, isdir
@@ -281,7 +280,6 @@ def file_len(fname):
     return i + 1
 
 
-# def generateXML(classname, filename, outputpath, location, imagesize):
 def generateXML(now_JSON, out_xml_path, imagesize, file_name):
     folderxml = ET.Element('folder')
     folderxml.text = str(getpass.getuser())
@@ -336,8 +334,11 @@ def generateXML(now_JSON, out_xml_path, imagesize, file_name):
 
 
 if __name__ == '__main__':
-    videoinpath = "data/sample44/"
-    outpath = "data/output44/"
+    videoinpath = "data/sample1/"
+    outpath = "data/output1/"
+
+    if not isdir(outpath):
+        mkdir(outpath)
 
     dirfold_img = 'image'
     out_img_path = join(outpath, dirfold_img)
